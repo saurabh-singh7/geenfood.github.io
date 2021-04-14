@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body onload="myFunction()">
+    <div id="loading"></div>
+    <div class="container">
+        <header id="Nav">
+            <a href="#" class="logo">Green <span>Foods</span></a>
+            <ul>
+                <li> <a href="#" class="active" onclick=" toggle()">Home</a> </li>
+                <li> <a href="#" onclick=" toggle()">Menu</a> </li>
+                <li> <a href="#" onclick=" toggle()">About</a> </li>
+                <li> <a href="#" onclick=" toggle()">Contact</a> </li>
+            </ul>
+            <div class="toggle" onclick=" toggle()"></div>
+        </header>
+        <div class="content">
+            <div class="bannerText" id="slideshowText">
+                <div class="active">
+                    <h2>Eat Healthy <br>Stay healthy</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo soluta eveniet doloribus amet
+                        quaerat qui fuga officiis culpa id perspiciatis. Voluptate eos dignissimos qui, odit fugiat
+                        maiores non veniam, laborum voluptatibus commodi autem quas, recusandae adipisci amet. </p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Eat Your <br> veggies</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo soluta eveniet doloribus amet
+                        quaerat qui fuga officiis culpa id perspiciatis. Voluptate eos dignissimos qui, odit fugiat
+                        maiores non veniam, laborum voluptatibus commodi autem quas, recusandae adipisci amet. </p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>good food <br>good mood</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo soluta eveniet doloribus amet
+                        quaerat qui fuga officiis culpa id perspiciatis. Voluptate eos dignissimos qui, odit fugiat
+                        maiores non veniam, laborum voluptatibus commodi autem quas, recusandae adipisci amet. </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="bannerImg" id="slideshow">
+                <img src="img1.jpeg" alt="" class="active">
+                <img src="img2.jpeg" alt="">
+                <img src="img3.jpeg" alt="">
+            </div>
+        </div>
+        <div class="icons ">
+            <ul class="sci">
+                <li><a href="#"><img src="insta.jpg" alt=""></a></li>
+                <li><a href="#"><img src="facebook.jpg" alt=""></a></li>
+                <li><a href="#"><img src="twiter.jpg" alt=""></a></li>
+            </ul>
+            <ul class="controls">
+                <li><a href="#"><img src="left.png" alt="" onclick="prevSlide(); prevSlideText();"></a></li>
+                <li><a href="#"><img src="right.png" alt="" onclick="nextSlide(); nextSlideText();  "></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var slideshow = document.getElementById('slideshow');
+        var slides = slideshow.getElementsByTagName('img');
+        var index = 0;
+
+        function nextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+
+        var slideshowText = document.getElementById('slideshowText');
+        var slideshowText = slideshowText.getElementsByTagName('div');
+        var I = 0;
+
+        function nextSlideText() {
+            slideshowText[I].classList.remove('active');
+            I = (I + 1) % slideshowText.length;
+            slideshowText[I].classList.add('active');
+        }
+        function prevSlideText() {
+            slideshowText[I].classList.remove('active');
+            I = (I - 1 + slideshowText.length) % slideshowText.length;
+            slideshowText[I].classList.add('active');
+        }
+        function toggle() {
+            var header = document.getElementById("Nav");
+            header.classList.toggle('active');
+        }
+
+
+        var preloader = document.getElementById('loading');
+        function myFunction() {
+            preloader.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
